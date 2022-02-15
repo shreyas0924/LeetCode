@@ -1,24 +1,22 @@
 class Solution {
 public:
-    //Moore Voting Algorithm
-    
-    //Concept: If a number occurs more than n/2 times, then all other numbers occur less than n/2 times.
-    
     int majorityElement(vector<int>& nums) {
-        int count = 0;
-        int n;
-        
-        for(int i=0;i<nums.size();i++){
-            if(count==0){
-                n = nums[i];
+        int n = nums.size();
+        int i;
+        int count=0;
+        int ele;
+        for(i=0;i<n;i++)
+        {
+            if(count == 0)
+            {
+                ele = nums[i];
             }
-            if(nums[i]==n){
+            if(ele == nums[i])
                 count++;
-            }else{
+            else
                 count--;
-            }
         }
+        return ele;
         
-        return n;
     }
 };
