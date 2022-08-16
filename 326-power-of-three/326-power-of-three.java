@@ -1,12 +1,8 @@
 class Solution {
-    public boolean isPowerOfThree(int n) {
-        return ans(n); 
+   public boolean isPowerOfThree(int n) {
+       if (n == 1) return true;
+        if (n <= 0 || n % 3 != 0) return false;
+        return isPowerOfThree(n / 3);
     }
-    static boolean ans(int n){
-        if(n<1) return false;
-        if(n==1 || n==3) return true;
-        if(n%3 == 0)
-            return ans(n/3);
-        return false;
-    }
+ 
 }
