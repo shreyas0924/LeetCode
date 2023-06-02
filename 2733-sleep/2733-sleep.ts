@@ -1,5 +1,5 @@
 async function sleep(millis: number): Promise<void> {
-    await new Promise(delay => setTimeout(delay, millis))
+    return  new Promise<void>(delay => setTimeout(delay, millis))
 }
 
 
