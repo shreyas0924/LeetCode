@@ -5,7 +5,7 @@ class Solution {
         
         String sa = s.trim();
         int len = sa.length()-1;
-        System.out.println(s);
+        
         // for(int i=0;i<sa.length();i++){
         //     count++;
         //     if(sa.charAt(i) == ' '){
