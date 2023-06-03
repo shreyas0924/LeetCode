@@ -1,13 +1,13 @@
 function cancellable(fn: Function, args: any[], t: number): Function {
-    let cancelled: boolean = false
+    let cancelled: boolean = true
     setTimeout(() => {
-        if(!cancelled){
+        if(cancelled){
             fn(...args)
         }
 
     },t)
     return () => {
-        cancelled = true
+        cancelled = false
     }
 };
 
