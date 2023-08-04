@@ -16,11 +16,11 @@ class Solution {
             return head;
         }
         while(a.next != null){
-            if(a.val != a.next.val){
-                a = a.next;
+            if(a.val == a.next.val){
+                a.next = a.next.next;
             }
             else {
-                a.next = a.next.next;
+                a = a.next;
             }
         }
         return head;
