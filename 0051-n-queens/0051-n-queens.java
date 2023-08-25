@@ -28,14 +28,14 @@ class Solution {
         
     }
     
-     static List<String> construct(char[][] board) {
+     static List<String> construct(char[][] board) {  //constructing list for each solution
 
-        List<String> internal = new ArrayList<>();
+        List<String> ansList = new ArrayList<>();
         for (int i = 0; i < board.length; i++) {
             String row = new String(board[i]);
-            internal.add(row);
+            ansList.add(row);
         }
-        return internal;
+        return ansList;
     }
     
     static boolean isSafe(char[][] board, int row, int col){
@@ -45,14 +45,14 @@ class Solution {
             }
         }
         
-        int maxLeft = Math.min(row, col);
+        int maxLeft = Math.min(row, col);  //left diagonal
         for(int i=1; i<=maxLeft; i++){
             if(board[row-i][col-i] == 'Q'){
                 return false;
             } 
         }
         
-        int maxRight = Math.min(row, board.length - 1 - col);
+        int maxRight = Math.min(row, board.length - 1 - col);    //right diagonal
         for(int i=1; i<=maxRight; i++){
             if(board[row-i][col+i] == 'Q'){
                 return false;
