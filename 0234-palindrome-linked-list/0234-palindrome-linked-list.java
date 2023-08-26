@@ -9,41 +9,24 @@
  * }
  */
 class Solution {
-    public boolean isPalindrome(ListNode head) {
-        ListNode slow = head;
-        ListNode fast = head;
-        
-        while(fast.next != null && fast.next.next != null){    //Find the mid ele of linkedlist
-            slow = slow.next;
-            fast = fast.next.next;
-        }
-        
-        
-        //reverse the second part
-        
-        ListNode prev = null;
-        ListNode curr = slow.next;
-        
+    
+    public boolean isPalindrome(ListNode head){
+        Stack<Integer> stack = new Stack<>();
+        ListNode curr = head;
+        ListNode temp = head;
         while(curr != null){
-            ListNode next = curr.next;
-            curr.next = prev;
-            prev = curr;
-            curr = next;
+            stack.push(curr.val);
+            curr = curr.next;
         }
-        
-        
-        //compare the two lists
-        
-        ListNode L1 = head;
-        ListNode L2 = prev;
-        while (L2 != null) {
-            if (L1.val != L2.val) {
-                return false;
+        while(temp != null){
+            int stackVal = stack.pop();
+            if(temp.val == stackVal){
+                temp = temp.next;
             }
-        L1 = L1.next;
-        L2 = L2.next;
+            else return false;
+            
+            
         }
-
-        return true;
+        return stack.isEmpty();
     }
 }
